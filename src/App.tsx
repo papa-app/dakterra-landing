@@ -583,11 +583,11 @@ export default function App() {
               <div className="pt-2 space-y-1">
                 <p className="text-[#a1a1aa] text-xs">
                   <span className="text-[#4ade80] font-medium">Email:</span>{" "}
-                  hola@dakterra.app
+                   contacto@dakterra.com
                 </p>
                 <p className="text-[#a1a1aa] text-xs">
                   <span className="text-[#4ade80] font-medium">WhatsApp:</span>{" "}
-                  +57 310 000 0000
+                  +57 321 570 0339
                 </p>
               </div>
             </div>
@@ -596,7 +596,7 @@ export default function App() {
           <Separator className="bg-[#4ade80]/10 mb-6" />
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[#a1a1aa] text-xs">
-            <p>© 2024 Dakterra. Todos los derechos reservados.</p>
+            <p>© 2026 Dakterra. Todos los derechos reservados.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-[#4ade80] transition-colors">Términos y Condiciones</a>
               <a href="#" className="hover:text-[#4ade80] transition-colors">Política de Privacidad</a>
