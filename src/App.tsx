@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -109,15 +110,47 @@ const trustPoints = [
 export default function App() {
   return (
     <div className="min-h-screen bg-[#040504] text-white overflow-x-hidden">
-      {/* ── NAV ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#4ade80]/20 bg-[#040504]/90 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <Leaf className="size-6 text-[#4ade80]" />
+      <Helmet>
+        <title>Dakterra — Gestión Agrícola Inteligente para el Campo Latinoamericano</title>
+        <meta
+          name="description"
+          content="Dakterra es la app agrícola con bitácora de voz, monitoreo satelital NDVI y alertas climáticas para tu finca. Funciona sin internet. Diseñada para el campo colombiano y latinoamericano."
+        />
+<meta
+  name="keywords"
+  content="app agrícola, monitoreo satelital, NDVI, bitácora de voz, agricultura inteligente, gestión de fincas, alertas climáticas, agrotech, campo colombiano, agricultura latinoamericana, Dakterra, finanzas de cultivo, rentabilidad agrícola, salud del cultivo, fitosanitario, gestión financiera campo, presupuesto agrícola, análisis de cosecha, control de gastos agrícolas"
+/>
+        <meta name="author" content="Dakterra" />
+        <meta property="og:title" content="Dakterra — Controla tu cultivo desde tu bolsillo, incluso sin internet" />
+        <meta
+          property="og:description"
+          content="App agrícola con bitácora por voz, monitoreo satelital NDVI y alertas climáticas para tu finca. Funciona sin internet."
+        />
+        <meta property="og:image" content="https://dakterra.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://dakterra.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_CO" />
+        <meta property="og:site_name" content="Dakterra" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Dakterra — Controla tu cultivo desde tu bolsillo, incluso sin internet" />
+        <meta
+          name="twitter:description"
+          content="App agrícola con bitácora por voz, monitoreo satelital NDVI y alertas climáticas para tu finca. Todo offline."
+        />
+        <meta name="twitter:image" content="https://dakterra.com/og-image.png" />
+      </Helmet>
+
+      {/* ── HEADER ── */}
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#4ade80]/20 bg-[#040504]/90 backdrop-blur-md">
+        <nav aria-label="Navegación principal" className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+          <a href="/" className="flex items-center gap-2" aria-label="Dakterra, ir al inicio">
+            <Leaf className="size-6 text-[#4ade80]" aria-hidden="true" />
             <span className="text-xl font-bold tracking-tight text-white">
               Dak<span className="text-[#4ade80]">terra</span>
             </span>
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-[#a1a1aa]">
             <a href="#funciones" className="hover:text-[#4ade80] transition-colors">Funciones</a>
             <a href="#analisis" className="hover:text-[#4ade80] transition-colors">Análisis</a>
@@ -128,26 +161,28 @@ export default function App() {
             className="bg-[#4ade80] text-black font-bold hover:bg-[#22c55e] text-sm px-4 py-2 h-10 min-h-[44px] rounded-lg"
             asChild
           >
-            <a href="#cta">Prueba Gratis</a>
+            <a href="#cta" aria-label="Prueba Dakterra gratis, ir al formulario">Prueba Gratis</a>
           </Button>
-        </div>
-      </nav>
+        </nav>
+      </header>
+
+      <main id="contenido-principal">
 
       {/* ── HERO ── */}
-      <section className="relative pt-24 pb-20 sm:pt-32 sm:pb-28 overflow-hidden grid-texture">
+      <section aria-label="Hero: presentación de Dakterra" className="relative pt-24 pb-20 sm:pt-32 sm:pb-28 overflow-hidden grid-texture">
         {/* Radial glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#4ade80]/8 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <div className="space-y-7 text-center lg:text-left">
-            <Badge
-              variant="outline"
-              className="border-[#4ade80]/50 text-[#4ade80] bg-[#4ade80]/10 text-sm px-4 py-1.5 rounded-full font-medium inline-flex gap-2"
-            >
-              <Leaf className="size-3.5" />
-              App pensada para el campo colombiano y latinoamericano
-            </Badge>
+              <Badge
+                variant="outline"
+                className="border-[#4ade80]/50 text-[#4ade80] bg-[#4ade80]/10 text-sm px-4 py-1.5 rounded-full font-medium inline-flex gap-2"
+              >
+                <Leaf className="size-3.5" aria-hidden="true" />
+                App pensada para el campo colombiano y latinoamericano
+              </Badge>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
               Lleva el control de tu{" "}
@@ -168,9 +203,9 @@ export default function App() {
                 className="bg-[#4ade80] text-black font-extrabold text-lg px-8 py-4 h-14 rounded-xl hover:bg-[#22c55e] transition-all pulse-cta min-w-[220px]"
                 asChild
               >
-                <a href="#cta">
+                <a href="#cta" aria-label="Prueba Dakterra gratis ahora">
                   Prueba Dakterra Gratis
-                  <ChevronRight className="size-5" />
+                  <ChevronRight className="size-5" aria-hidden="true" />
                 </a>
               </Button>
               <Button
@@ -179,7 +214,7 @@ export default function App() {
                 className="border-[#4ade80]/40 text-[#4ade80] font-bold text-lg px-8 py-4 h-14 rounded-xl hover:bg-[#4ade80]/10 bg-transparent min-w-[180px]"
                 asChild
               >
-                <a href="#funciones">Ver cómo funciona</a>
+                <a href="#funciones" aria-label="Ver cómo funciona Dakterra">Ver cómo funciona</a>
               </Button>
             </div>
 
@@ -203,15 +238,16 @@ export default function App() {
             <div className="absolute inset-0 bg-[#4ade80]/10 rounded-full blur-[80px] scale-75" />
             <img
               src="/hero-phone.webp"
-              alt="Pantalla del dashboard de Dakterra mostrando gráficos de cultivo"
+              alt="Pantalla del dashboard de Dakterra mostrando gráficos de salud del cultivo"
               className="relative z-10 max-h-[520px] w-auto drop-shadow-2xl"
+              fetchPriority="high"
             />
           </div>
         </div>
       </section>
 
       {/* ── FEATURES ── */}
-      <section id="funciones" className="py-20 sm:py-28">
+      <section id="funciones" aria-label="Funciones principales de Dakterra" className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <Badge variant="outline" className="border-[#4ade80]/40 text-[#4ade80] mb-4 text-sm px-4 py-1.5">
@@ -238,7 +274,7 @@ export default function App() {
                   <CardContent className="p-7 space-y-5">
                     <div className="flex items-start justify-between">
                       <div className="size-14 rounded-xl bg-[#1a1d19] border border-[#4ade80]/20 flex items-center justify-center">
-                        <Icon className="size-7 text-[#4ade80]" />
+                        <Icon className="size-7 text-[#4ade80]" aria-hidden="true" />
                       </div>
                       <Badge
                         variant="outline"
@@ -254,7 +290,7 @@ export default function App() {
                     </div>
 
                     <div className={`text-sm font-bold flex items-center gap-2 ${f.highlightColor}`}>
-                      <CheckCircle2 className="size-4 shrink-0" />
+                      <CheckCircle2 className="size-4 shrink-0" aria-hidden="true" />
                       {f.highlight}
                     </div>
                   </CardContent>
@@ -266,7 +302,7 @@ export default function App() {
       </section>
 
       {/* ── ANALYTICS DASHBOARD ── */}
-      <section id="analisis" className="py-20 sm:py-28 bg-[#0d110c] grid-texture">
+      <section id="analisis" aria-label="Panel de análisis y datos de cultivo" className="py-20 sm:py-28 bg-[#0d110c] grid-texture">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {/* Left text */}
@@ -295,7 +331,7 @@ export default function App() {
                   return (
                     <li key={item.text} className="flex items-center gap-4">
                       <div className="size-10 rounded-lg bg-[#4ade80]/15 border border-[#4ade80]/30 flex items-center justify-center shrink-0">
-                        <Icon className="size-5 text-[#4ade80]" />
+                        <Icon className="size-5 text-[#4ade80]" aria-hidden="true" />
                       </div>
                       <span className="text-white font-medium text-base">{item.text}</span>
                     </li>
@@ -311,8 +347,9 @@ export default function App() {
                 <CardContent className="p-0">
                   <img
                     src="/satellite-map.webp"
-                    alt="Mapa satelital con análisis de vegetación de la finca"
+                    alt="Mapa satelital con análisis de vegetación de la finca mostrando zonas saludables y zonas con riesgo"
                     className="w-full h-48 object-cover"
+                    loading="lazy"
                   />
                   <div className="p-4 flex items-center justify-between">
                     <div>
@@ -374,7 +411,7 @@ export default function App() {
       </section>
 
       {/* ── MODO CAMPO / TRUST ── */}
-      <section id="modo-campo" className="py-20 sm:py-28">
+      <section id="modo-campo" aria-label="Modo Campo: diseñada para trabajar bajo el sol" className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <Badge variant="outline" className="border-[#4ade80]/40 text-[#4ade80] mb-4 text-sm px-4 py-1.5">
@@ -400,7 +437,7 @@ export default function App() {
                 >
                   <CardContent className="p-7 space-y-4 text-center">
                     <div className="size-14 rounded-2xl bg-[#4ade80]/15 border border-[#4ade80]/30 flex items-center justify-center mx-auto">
-                      <Icon className="size-7 text-[#4ade80]" />
+                      <Icon className="size-7 text-[#4ade80]" aria-hidden="true" />
                     </div>
                     <h3 className="text-lg font-bold text-white leading-snug">{tp.title}</h3>
                     <p className="text-[#a1a1aa] text-sm leading-relaxed">{tp.desc}</p>
@@ -414,8 +451,9 @@ export default function App() {
           <div className="mt-14 rounded-3xl overflow-hidden relative border border-[#4ade80]/30 glow-border">
             <img
               src="/farmer-field.webp"
-              alt="Agricultor usando Dakterra en el campo"
+              alt="Agricultor usando la app Dakterra en medio del cultivo, con el teléfono en mano"
               className="w-full h-64 sm:h-80 object-cover"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#040504]/90 via-[#040504]/60 to-transparent flex items-center">
               <div className="px-8 sm:px-14 max-w-lg space-y-3">
@@ -433,7 +471,7 @@ export default function App() {
       </section>
 
       {/* ── TESTIMONIOS ── */}
-      <section id="testimonios" className="py-20 sm:py-28 bg-[#0d110c] grid-texture">
+      <section id="testimonios" aria-label="Testimonios de agricultores que usan Dakterra" className="py-20 sm:py-28 bg-[#0d110c] grid-texture">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
             <Badge variant="outline" className="border-[#4ade80]/40 text-[#4ade80] mb-4 text-sm px-4 py-1.5">
@@ -452,12 +490,12 @@ export default function App() {
                 className="bg-[#040504] border border-[#4ade80]/25 rounded-2xl glow-border hover:border-[#4ade80]/60 transition-all duration-300"
               >
                 <CardContent className="p-7 space-y-5">
-                  <MessageSquareQuote className="size-8 text-[#4ade80]/60" />
+                  <MessageSquareQuote className="size-8 text-[#4ade80]/60" aria-hidden="true" />
 
                   {/* Stars */}
                   <div className="flex gap-1">
                     {Array.from({ length: t.stars }).map((_, i) => (
-                      <Star key={i} className="size-4 fill-[#f59e0b] text-[#f59e0b]" />
+                      <Star key={i} className="size-4 fill-[#f59e0b] text-[#f59e0b]" aria-hidden="true" />
                     ))}
                   </div>
 
@@ -474,7 +512,7 @@ export default function App() {
                     <div>
                       <p className="font-bold text-white text-sm">{t.name}</p>
                       <p className="text-[#a1a1aa] text-xs flex items-center gap-1">
-                        <MapPin className="size-3" />
+                        <MapPin className="size-3" aria-hidden="true" />
                         {t.role}
                       </p>
                     </div>
@@ -487,7 +525,7 @@ export default function App() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section id="cta" className="py-20 sm:py-28 relative overflow-hidden">
+      <section id="cta" aria-label="Llamado a la acción: prueba Dakterra gratis" className="py-20 sm:py-28 relative overflow-hidden">
         <div className="absolute inset-0 grid-texture" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#4ade80]/10 rounded-full blur-[100px] pointer-events-none" />
 
@@ -507,10 +545,11 @@ export default function App() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
+              aria-label="Prueba Dakterra gratis, empieza ahora"
               className="bg-[#4ade80] text-black font-extrabold text-xl px-10 py-5 h-16 rounded-xl hover:bg-[#22c55e] pulse-cta min-w-[260px]"
             >
               Prueba Dakterra Gratis
-              <ChevronRight className="size-5" />
+              <ChevronRight className="size-5" aria-hidden="true" />
             </Button>
           </div>
 
@@ -522,9 +561,10 @@ export default function App() {
             ].map((s) => (
               <button
                 key={s.store}
+                aria-label={`${s.sub} ${s.store}`}
                 className="flex items-center gap-3 px-6 py-3.5 bg-[#0d110c] border border-[#4ade80]/30 rounded-xl hover:border-[#4ade80] transition-colors text-left min-w-[180px]"
               >
-                <Smartphone className="size-7 text-[#4ade80] shrink-0" />
+                <Smartphone className="size-7 text-[#4ade80] shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-[#a1a1aa] text-xs">{s.sub}</p>
                   <p className="text-white font-bold text-sm">{s.store}</p>
@@ -535,14 +575,16 @@ export default function App() {
         </div>
       </section>
 
+      </main>
+
       {/* ── FOOTER ── */}
-      <footer className="bg-[#0d110c] border-t border-[#4ade80]/15">
+      <footer aria-label="Pie de página de Dakterra" className="bg-[#0d110c] border-t border-[#4ade80]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
             {/* Brand */}
             <div className="space-y-4 lg:col-span-2">
               <div className="flex items-center gap-2">
-                <Leaf className="size-6 text-[#4ade80]" />
+                <Leaf className="size-6 text-[#4ade80]" aria-hidden="true" />
                 <span className="text-xl font-bold">
                   Dak<span className="text-[#4ade80]">terra</span>
                 </span>
