@@ -25,61 +25,12 @@
     }
     h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
     p { color: #a3e8c8; line-height: 1.5; margin: 0.5rem 0; }
-    .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 2rem;
-      background: #16a34a;
-      color: #f0fdf4;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 600;
-    }
-    .status { margin-top: 1rem; font-size: 0.875rem; color: #6b8a7a; }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>¡Correo confirmado!</h1>
-    <p>Tu cuenta ha sido verificada correctamente.</p>
-    <p class="status" id="status">Abriendo la aplicación...</p>
-    <a class="btn" href="dakterra://callback" id="fallback-link">Abrir aplicación</a>
+    <p>Abre la aplicación e inicia sesión para continuar.</p>
   </div>
-
-  <script>
-    (function () {
-      const hash = window.location.hash.substring(1);
-      const status = document.getElementById('status');
-      const fallbackLink = document.getElementById('fallback-link');
-
-      if (!hash) {
-        status.textContent = 'Vuelve a la app e inicia sesión.';
-        return;
-      }
-
-      const params = new URLSearchParams(hash);
-      const accessToken = params.get('access_token');
-      const refreshToken = params.get('refresh_token');
-
-      if (!accessToken || !refreshToken) {
-        status.textContent = 'Vuelve a la app e inicia sesión.';
-        return;
-      }
-
-      const deepLink = 'dakterra://callback?access_token=' + encodeURIComponent(accessToken) + '&refresh_token=' + encodeURIComponent(refreshToken);
-      fallbackLink.href = deepLink;
-
-      window.location.href = deepLink;
-
-      let elapsed = 0;
-      const interval = setInterval(function () {
-        elapsed += 500;
-        if (elapsed >= 4000) {
-          clearInterval(interval);
-          status.textContent = '¿No se abrió la app? Toca el botón o vuelve e inicia sesión.';
-        }
-      }, 500);
-    })();
-  </script>
 </body>
 </html>
