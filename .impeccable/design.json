@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-25T00:00:00Z",
+  "title": "Design System: Dakterra",
+  "extensions": {
+    "colorMeta": {
+      "cream-paper":     { "role": "neutral",   "displayName": "Cream Paper",    "canonical": "#f0e8d4" },
+      "terracotta-ink":  { "role": "primary",   "displayName": "Terracotta Ink", "canonical": "#c84a2e" },
+      "avocado-ink":     { "role": "secondary", "displayName": "Avocado Ink",    "canonical": "#7d8c3f" },
+      "ink-black":       { "role": "neutral",   "displayName": "Ink Black",      "canonical": "#1f1a14" },
+      "cobalt-blue":     { "role": "accent",    "displayName": "Cobalt Blue",    "canonical": "#2a4d7c" },
+      "ochre-mustard":   { "role": "accent",    "displayName": "Ochre Mustard",  "canonical": "#c8954a" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines and plate titles. Anton, uppercase, poster scale." },
+      "label":   { "displayName": "Label",   "purpose": "Section labels, button text, field labels, captions. Special Elite typewriter." },
+      "body":    { "displayName": "Body",    "purpose": "Captions, ficha body, proof quote, footer. Special Elite typewriter." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-press",    "value": "cubic-bezier(0.4, 0, 0.2, 1)",       "purpose": "Press-mark feedback on button hover/focus." },
+      { "name": "stamp-drop",    "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",  "purpose": "Stamp-drop animation on form submit." },
+      { "name": "misreg-flicker","value": "steps(2, end)",                     "purpose": "1-2 frame silkscreen misregistration shimmer on hero load." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Press-Mark Button",
+      "kind": "button",
+      "refersTo": "press-mark-button",
+      "description": "Press-mark rectangle button for INSCRIBIRME and similar institutional actions.",
+      "html": "<button class=\"ds-btn-press\">INSCRIBIRME</button>",
+      "css": ".ds-btn-press { background: transparent; color: #c84a2e; border: 2px solid #c84a2e; padding: 12px 32px; font-family: 'Special Elite', 'Courier Prime', monospace; text-transform: uppercase; letter-spacing: 0.06em; border-radius: 0; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; } .ds-btn-press:hover { background: #c84a2e; color: #f0e8d4; } .ds-btn-press:focus-visible { outline: 2px solid #1f1a14; outline-offset: 2px; } .ds-btn-press:disabled { opacity: 0.5; cursor: not-allowed; }"
+    },
+    {
+      "name": "Registration Card (Ficha)",
+      "kind": "card",
+      "refersTo": "ficha-ruled-line",
+      "description": "Typed registration card with ruled input lines, used as the waitlist form.",
+      "html": "<form class=\"ds-ficha\"><div class=\"ds-ficha-title\">FICHA DE INSCRIPCIÓN</div><label class=\"ds-ficha-field\"><span>NOMBRE COMPLETO</span><input type=\"text\" name=\"name\"></label><fieldset class=\"ds-ficha-field\"><legend>CONTACTO</legend><label><input type=\"checkbox\" name=\"contact\" value=\"email\"> EMAIL</label><label><input type=\"checkbox\" name=\"contact\" value=\"whatsapp\"> WHATSAPP</label></fieldset><label class=\"ds-ficha-field\"><span>TU MEJOR NÚMERO</span><input type=\"tel\" name=\"number\"></label><button type=\"submit\" class=\"ds-btn-press\">INSCRIBIRME</button></form>",
+      "css": ".ds-ficha { background: #f0e8d4; border: 1px solid #1f1a14; padding: 24px; border-radius: 0; font-family: 'Special Elite', monospace; color: #1f1a14; } .ds-ficha-title { color: #c84a2e; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.875rem; margin-bottom: 16px; } .ds-ficha-field { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid #1f1a14; padding: 8px 0; margin-bottom: 12px; } .ds-ficha-field > span, .ds-ficha-field > legend { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; flex-shrink: 0; } .ds-ficha-field input { background: transparent; border: none; outline: none; flex: 1; font-family: inherit; color: #1f1a14; padding: 4px 0; } .ds-ficha fieldset { border: none; padding: 0; margin: 0; }"
+    },
+    {
+      "name": "Numbered Plate",
+      "kind": "card",
+      "refersTo": "plate-frame",
+      "description": "Numbered silkscreen plate (Cómo Funciona 01/02/03) with halftone crop, title, and caption.",
+      "html": "<article class=\"ds-plate\"><div class=\"ds-plate-num\">01</div><h3 class=\"ds-plate-title\">HABLA</h3><div class=\"ds-plate-crop\"><img src=\"plate-01.webp\" alt=\"\" class=\"ds-halftone\"></div><p class=\"ds-plate-caption\">Registra por voz lo que está pasando en tu cultivo. Fácil, rápido y sin escribir.</p></article>",
+      "css": ".ds-plate { background: #f0e8d4; border: 1px solid #1f1a14; padding: 24px; border-radius: 0; font-family: 'Special Elite', monospace; color: #1f1a14; } .ds-plate-num { font-family: 'Anton', sans-serif; color: #c84a2e; font-size: clamp(3.5rem, 8vw, 5rem); line-height: 1; margin-bottom: 8px; } .ds-plate-title { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.5rem; line-height: 1; margin-bottom: 12px; } .ds-plate-crop { margin: 12px 0; aspect-ratio: 4/3; overflow: hidden; } .ds-plate-crop img { width: 100%; height: 100%; object-fit: cover; display: block; } .ds-halftone { filter: grayscale(0.9) contrast(1.1); } .ds-plate-caption { line-height: 1.55; font-size: 1rem; }"
+    },
+    {
+      "name": "Proof Beat",
+      "kind": "card",
+      "refersTo": "proof-frame",
+      "description": "Typed team note marked SINTÉTICO, demonstrating the mechanism rather than fabricating evidence.",
+      "html": "<aside class=\"ds-proof\"><div class=\"ds-proof-marker\">SINTÉTICO</div><svg class=\"ds-quote\" viewBox=\"0 0 60 60\" aria-hidden=\"true\"><path d=\"M0 30 Q0 0 30 0 L30 18 Q18 18 18 30 Q18 42 30 42 L30 60 Q0 60 0 30 Z M30 30 Q30 0 60 0 L60 18 Q48 18 48 30 Q48 42 60 42 L60 60 Q30 60 30 30 Z\" fill=\"#7d8c3f\"/></svg><p class=\"ds-proof-text\">Probamos Dakterra con tres lotes de papa en Cundinamarca. Ahora sabemos cuándo regar, cuándo aplicar y cuándo esperar. Menos pérdidas. Más tranquilidad.</p><p class=\"ds-proof-sig\">— Equipo Dakterra</p></aside>",
+      "css": ".ds-proof { background: #f0e8d4; border: 1px solid #1f1a14; padding: 32px; border-radius: 0; position: relative; font-family: 'Special Elite', monospace; color: #1f1a14; } .ds-proof-marker { position: absolute; top: 12px; right: 12px; border: 1px solid #7d8c3f; color: #7d8c3f; padding: 2px 8px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; } .ds-quote { width: 48px; height: 48px; margin-bottom: 12px; } .ds-proof-text { line-height: 1.55; font-size: 1rem; } .ds-proof-sig { color: #c84a2e; margin-top: 12px; font-size: 0.875rem; }"
+    },
+    {
+      "name": "Imprint Footer",
+      "kind": "custom",
+      "refersTo": "footer-frame",
+      "description": "Institutional two-column footer: wordmark + tagline, contact.",
+      "html": "<footer class=\"ds-footer\"><div class=\"ds-footer-brand\"><span class=\"ds-wordmark\">Dak<span class=\"ds-wordmark-accent\">terra</span></span><p class=\"ds-tagline\">Tecnología campesina. Decisiones en tu terreno.</p></div><div class=\"ds-footer-contact\"><h4>CONTACTO</h4><p>contacto@dakterra.com</p><p>+57 321 5700 339</p></div></footer>",
+      "css": ".ds-footer { border-top: 1px solid #1f1a14; padding: 48px 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; font-family: 'Special Elite', monospace; color: #1f1a14; } .ds-wordmark { font-family: 'Anton', sans-serif; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; letter-spacing: 0; } .ds-wordmark-accent { color: #7d8c3f; } .ds-tagline { font-size: 0.875rem; margin-top: 8px; } .ds-footer h4 { color: #c84a2e; text-transform: uppercase; letter-spacing: 0.06em; font-family: inherit; font-size: 0.875rem; margin-bottom: 8px; } .ds-footer p { font-size: 0.875rem; line-height: 1.55; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El cartel de Reforma Agraria",
+    "overview": "A single-page web landing treated as a silkscreened bulletin from the INCORA-era Latin American agrarian reform movement: two-color press-print on cream paper stock, hand-set in a condensed display face with a typewriter running voice. Every mark is a press of ink; nothing is rendered, glows, or darkens. The visitor reads it like an institutional bulletin posted at the cooperative, not a SaaS landing. The brand does not perform; the form speaks for itself.",
+    "keyCharacteristics": [
+      "Silkscreen press-print aesthetic, no digital ornament.",
+      "Two-color printing: terracotta + avocado + ink-black on cream paper.",
+      "Bold condensed display face at poster scale; typewriter face for everything else.",
+      "Hand-drawn-feel arrows, numbered callouts, ruled registration lines.",
+      "Halftone screen overlay on photographic content, applied in CSS for consistency.",
+      "Flat, ink-on-paper: no shadows, no glow, no gradients, no dark mode."
+    ],
+    "rules": [
+      { "name": "The Press-Run Rule",       "body": "The palette is a four-color silkscreen run. Any fifth color in a render is a print error. Cobalt and ochre are spot accents, never page-scale.",                          "section": "colors" },
+      { "name": "The Two-Color Rule",       "body": "Every plate uses at most two of {terracotta, avocado, ink} at full saturation, plus cream as ground. A plate that uses all three has lost the print rhythm.",      "section": "colors" },
+      { "name": "The Anton-Only Rule",       "body": "Headlines use Anton or a fallback of the same family. They do not use a serif. They do not use a modern grotesque.",                                                  "section": "typography" },
+      { "name": "The Typewriter-Voice Rule","body": "Body, labels, captions, and annotations all use Special Elite. The cadence is one voice: the press-room typewriter.",                                              "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. The only depth cues are ink density, overlap, and the halftone screen. No box-shadow, no backdrop-filter, no glow.",                       "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Anton for every headline, uppercase, no tracking adjustments.",
+      "Do use Special Elite for every body, label, and caption.",
+      "Do apply the halftone screen overlay in CSS to every photographic content.",
+      "Do use terracotta for primary accent work and avocado for secondary/wordmark/quote-mark work.",
+      "Do use ruled lines (1px ink-black bottom border) for every input field in the registration card.",
+      "Do mark all demonstrative data with a small SINTÉTICO marker in avocado."
+    ],
+    "donts": [
+      "Don't use rounded corners anywhere except the deliberate terracotta sun circle in the hero.",
+      "Don't use shadows, glows, gradients, glass, or blur as decoration.",
+      "Don't use dark mode. The cream paper is the ground.",
+      "Don't use modern grotesque sans (Inter, Roboto, DM Sans, Hanken Grotesk) for headlines or body.",
+      "Don't use stock photos of farmers with smartphones — every raster asset must be hand-curated.",
+      "Don't include the banned aspirational claims (the +2,400 stat, the 4.9★ rating, the three named testimonials Carlos Mendoza / Rosa Quispe / Javier Torres) anywhere.",
+      "Don't add mock dashboards, fake percentages, or fake charts presented as real data.",
+      "Don't add app store badges until the app is actually published."
+    ]
+  }
+}

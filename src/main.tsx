@@ -5,9 +5,6 @@ import { HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import App from "./App.tsx"
 
-// Force dark class for Dakterra's always-dark theme
-document.documentElement.classList.add("dark")
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HelmetProvider>
