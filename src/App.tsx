@@ -431,15 +431,12 @@ export default function App() {
             </div>
           </div>
 
-          <div className="hero-landscape" aria-hidden="true">
-            <div className="halftone-frame">
+          <div className="hero-landscape">
+            <div className="halftone-frame" aria-hidden="true">
               <img src="/image2.png" alt="" className="halftone" loading="lazy" />
               <div className="halftone-screen" aria-hidden="true" />
             </div>
-          </div>
-
-          <div className="hero-ficha">
-            <div className="hero-ficha-inner">
+            <div className="hero-ficha">
               <Ficha />
             </div>
           </div>

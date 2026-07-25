@@ -150,24 +150,22 @@ button {
   grid-column: 1 / -1;
   margin-top: 8px;
   margin-bottom: 0;
+  position: relative;
 }
 
 .hero-landscape .halftone-frame {
-  aspect-ratio: 1500 / 400;
+  aspect-ratio: 1500 / 460;
   width: 100%;
 }
 
 .hero-ficha {
-  grid-column: 1 / -1;
-  margin-top: -120px;
-  position: relative;
-  z-index: 2;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  margin-top: 24px;
 }
 
-.hero-ficha-inner {
-  width: min(100%, 620px);
+.hero-ficha .ficha {
+  flex: 1;
 }
 
 @keyframes misreg {
@@ -609,6 +607,43 @@ button {
 /* ============================================================
    RESPONSIVE — collapse to single column on small screens.
    ============================================================ */
+@media (min-width: 901px) {
+  .hero-ficha {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    bottom: 16px;
+    width: 38%;
+    margin-top: 0;
+    z-index: 2;
+  }
+
+  .hero-ficha .ficha {
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-ficha .ficha-title {
+    margin-bottom: 14px;
+  }
+
+  .hero-ficha .ficha-field {
+    margin-bottom: 8px;
+    padding: 8px 0 10px;
+  }
+
+  .hero-ficha .checkbox-row {
+    padding-top: 2px;
+  }
+
+  .hero-ficha .press-mark {
+    margin-top: 10px;
+    padding: 11px 28px;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
@@ -627,11 +662,6 @@ button {
 
   .hero-landscape {
     margin-top: 16px;
-  }
-
-  .hero-ficha {
-    margin-top: -60px;
-    justify-content: stretch;
   }
 
   .plates-grid {
